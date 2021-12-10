@@ -1913,7 +1913,7 @@ class item : public visitable
         int ammo_remaining( const Character *carrier = nullptr ) const;
 
         /**
-         * ammo capacity for a specific ammo
+         * ammo capacity for a specific ammo, defaults to gun clip_size if not defined as 0 by ammo_restriction 
          */
         int ammo_capacity( const ammotype &ammo ) const;
 

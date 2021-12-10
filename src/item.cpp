@@ -8581,13 +8581,15 @@ int item::ammo_capacity( const ammotype &ammo ) const
     } else if( has_flag( flag_USES_BIONIC_POWER ) ) {
         return units::to_kilojoule( get_player_character().get_max_power_level() );
     }
-
-    if( contents.has_pocket_type( item_pocket::pocket_type::MAGAZINE ) ) {
-        return contents.ammo_capacity( ammo );
-    }
     if( is_magazine() ) {
         return type->magazine->capacity;
     }
+	if( uses_magazine() ) {
+        return contents.ammo_capacity( ammo );		
+    } else if( !contents.ammo_capacity( ammo ) && !!contents.clip_size();) {
+        return contents.clip_size();
+	}
+	
     return 0;
 }
 
