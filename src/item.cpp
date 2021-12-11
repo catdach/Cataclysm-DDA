@@ -8584,13 +8584,12 @@ int item::ammo_capacity( const ammotype &ammo ) const
     if( is_magazine() ) {
         return type->magazine->capacity;
     }
-	if( uses_magazine() ) {
-        return contents.ammo_capacity( ammo );		
-    } 
+    if( uses_magazine() ) {
+        return contents.ammo_capacity( ammo );
+    }
     if( !!contents.clip_size() ) {
         return contents.clip_size();
-	}
-	
+    }
     return 0;
 }
 
