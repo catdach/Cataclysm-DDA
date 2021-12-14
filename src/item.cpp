@@ -8588,7 +8588,7 @@ int item::ammo_capacity( const ammotype &ammo ) const
         return contents.ammo_capacity( ammo );
     }
     if( is_gun() ) {
-        return type->clip_size;
+        return type->clip;
     }
     return 0;
 }
